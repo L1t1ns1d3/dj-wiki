@@ -1,0 +1,9 @@
+{% extends 'encyclopedia/layout.html' %}
+
+{% block title %}
+    {{ random_wiki_entry }}
+{% endblock title %}
+
+{% block body %}
+    <a href="{% url 'encyclopedia:wiki' random_wiki_entry %}">{{ random_wiki_entry }}</a>
+{% endblock body %}
