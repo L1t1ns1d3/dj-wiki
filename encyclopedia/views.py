@@ -44,7 +44,7 @@ def wiki(request, title):
 def new_wiki(request):
     """ Create a new wiki entry """
     if request.method == 'POST':
-        form = forms.NewWikiForm(request.POST)
+        form = NewWikiForm(request.POST)
         if form.is_valid():
             title = form.cleaned_data['title']
             content = form.cleaned_data['content']
