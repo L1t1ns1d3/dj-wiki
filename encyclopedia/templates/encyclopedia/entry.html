@@ -5,7 +5,7 @@
 {% endblock title %}
 
 {% block body %}
-    {{ content }}
+    {{ content|safe }}
     <br><br>
     <a href="{% url 'encyclopedia:edit_wiki' title %}">Edit this entry</a>
 {% endblock body %}

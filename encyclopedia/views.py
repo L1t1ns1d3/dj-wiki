@@ -6,7 +6,7 @@ from django.urls import reverse
 
 from .forms import NewWikiForm
 from . import util
-from encyclopedia import forms
+from markdown2 import Markdown
 
 
 def index(request):
@@ -32,8 +32,10 @@ def wiki(request, title):
         return render(request, 'encyclopedia/404.html', {
             'not_found': 'The requested page is not found!'
         })
+    markdowner = Markdown()
+    markdown_to_html = markdowner.convert(util.get_entry(title))
     return render(request, 'encyclopedia/entry.html', {
-        'content': util.get_entry(title),
+        'content': markdown_to_html,
         'title': title
     })
 
